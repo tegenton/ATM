@@ -10,6 +10,7 @@ public class ATM {
 
     public static void main(String[] args) {
         ATM atm = new ATM(createAccount());
+        atm.menu();
     }
 
     public static BankAccount createAccount() {
@@ -33,5 +34,9 @@ public class ATM {
         int accountNumber = in.nextInt();
 
         return new BankAccount(user, pin, accountNumber);
+    }
+
+    public static void menu() {
+        
     }
 }   
