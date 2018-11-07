@@ -3,7 +3,7 @@ public class BankAccount {
     private int accountNumber;
     private int pin;
     private AccountHolder accountHolder;
-	BankAccount(AccountHolder accountHolder, int pin, int accountNumber) {
+    BankAccount(AccountHolder accountHolder, int pin, int accountNumber) {
         this.accountHolder = accountHolder;
         this.pin = pin;
         this.accountNumber = accountNumber;
@@ -18,12 +18,12 @@ public class BankAccount {
         return balance;
     }
     int getAccountNumber() {
-    	return accountNumber;
+        return accountNumber;
     }
     AccountHolder getAccountHolder() {
-    	return accountHolder;
+        return accountHolder;
     }
     boolean checkPIN(int test) {
-    	return pin == test;
+        return pin == test;
     }
 }

@@ -1,7 +1,7 @@
 public class AccountHolder {
-	private int ssn;
-	private String name;
-	private String phone;
+    private int ssn;
+    private String name;
+    private String phone;
     private String address;
 
     AccountHolder (String name, int ssn, String phone, String address) {
