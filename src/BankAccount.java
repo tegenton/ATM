@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class BankAccount {
     private double balance = 0;
     private int accountNumber;
@@ -12,7 +14,10 @@ public class BankAccount {
         balance += amount;
     }
     void withdraw(int amount) {
-        balance -= amount;
+    	if (balance >= amount)
+    		balance -= amount;
+    	else
+    		throw new InvalidParameterException("Withdraw amount is greater than balance");
     }
     double getBalance() {
         return balance;
