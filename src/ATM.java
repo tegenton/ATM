@@ -47,16 +47,19 @@ public class ATM {
     	}
     	
         System.out.println("What would you like to do?");
-        System.out.println("1. Check balance\n2. Make deposit\n3. Withdraw funds\n4. Change security information");
+        System.out.println("1. Check balance\n2. Make deposit\n3. Withdraw funds\n");
+        
         switch(in.nextLine().charAt(0)) {
         case '1':
         	System.out.println("Your current balance is $" + this.bankAccount.getBalance());
         	break;
+        	
         case '2':
         	System.out.println("How much will you be depositing?");
         	this.bankAccount.deposit(in.nextInt());
         	in.nextLine();
         	break;
+        	
         case '3':
         	System.out.println("How much would you like to withdraw?");
         	try {
@@ -67,12 +70,11 @@ public class ATM {
         	}
         	in.nextLine();
         	break;
-        case '4':
-        	System.out.println("This currently does nothing");
-        	break;
+        	
     	default:
         	System.out.println("Invalid option");
         }
+        
         System.out.println("Would you like to do anything else? (y/n)");
         switch(in.nextLine().toUpperCase().charAt(0)) {
         case 'Y':
