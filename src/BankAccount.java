@@ -22,8 +22,8 @@ public class BankAccount {
     double getBalance() {
         return balance;
     }
-    int getAccountNumber() {
-        return accountNumber;
+    boolean checkAccountNumber(int test) {
+        return accountNumber == test;
     }
     AccountHolder getAccountHolder() {
         return accountHolder;

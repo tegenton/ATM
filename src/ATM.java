@@ -39,7 +39,15 @@ public class ATM {
     }
 
     private void menu(boolean secure) {
+    	boolean accountNum = secure;
     	while (!secure) {
+    		while (!accountNum) {
+    			System.out.println("Enter your account number");
+    			accountNum = this.bankAccount.checkAccountNumber(in.nextInt());
+    			in.nextLine();
+    			System.out.println( (accountNum) ? "" : "Incorrect, please try again");
+    		}
+    		
     		System.out.print("Enter your pin: ");
     		secure = this.bankAccount.checkPIN(in.nextInt());
     		in.nextLine();
@@ -47,7 +55,7 @@ public class ATM {
     	}
     	
         System.out.println("What would you like to do?");
-        System.out.println("1. Check balance\n2. Make deposit\n3. Withdraw funds\n");
+        System.out.println("1. Account Info\n2. Make deposit\n3. Withdraw funds\n4. User Info");
         
         switch(in.nextLine().charAt(0)) {
         case '1':
