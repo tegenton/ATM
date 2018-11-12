@@ -60,18 +60,19 @@ public class ATM {
         switch(in.nextLine().charAt(0)) {
         case '1':
         	System.out.println("Your current balance is $" + this.bankAccount.getBalance());
+        	System.out.println("Your account number is " + this.bankAccount.getAccountNumber());
         	break;
         	
         case '2':
         	System.out.println("How much will you be depositing?");
-        	this.bankAccount.deposit(in.nextInt());
+        	this.bankAccount.deposit(in.nextDouble());
         	in.nextLine();
         	break;
         	
         case '3':
         	System.out.println("How much would you like to withdraw?");
         	try {
-        		this.bankAccount.withdraw(in.nextInt());
+        		this.bankAccount.withdraw(in.nextDouble());
         	}
         	catch (InvalidParameterException e) {
         		System.out.println("You cannot withdraw more than your current balance");
@@ -79,6 +80,12 @@ public class ATM {
         	in.nextLine();
         	break;
         	
+        case '4':
+        	System.out.println("Name: " + this.bankAccount.getAccountHolder().getName());
+        	System.out.println("SSN: " + this.bankAccount.getAccountHolder().getSSN());
+        	System.out.println("Phone Number: " + this.bankAccount.getAccountHolder().getPhone());
+        	System.out.println("Address: " + this.bankAccount.getAccountHolder().getAddress());
+        	break;
     	default:
         	System.out.println("Invalid option");
         }

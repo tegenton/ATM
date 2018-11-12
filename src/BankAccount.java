@@ -10,10 +10,10 @@ public class BankAccount {
         this.pin = pin;
         this.accountNumber = accountNumber;
     }
-    void deposit(int amount) {
+    void deposit(double amount) {
         balance += amount;
     }
-    void withdraw(int amount) {
+    void withdraw(double amount) {
     	if (balance >= amount)
     		balance -= amount;
     	else
@@ -24,6 +24,9 @@ public class BankAccount {
     }
     boolean checkAccountNumber(int test) {
         return accountNumber == test;
+    }
+    int getAccountNumber() {
+        return accountNumber;
     }
     AccountHolder getAccountHolder() {
         return accountHolder;
