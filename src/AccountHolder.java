@@ -5,12 +5,14 @@ public class AccountHolder {
     private String name;
     private String phone;
     private String address;
+    private String birthday;
 
-    AccountHolder (String name, int ssn, String phone, String address) {
+    AccountHolder (String name, int ssn, String phone, String address, String birthday) {
         this.name = name;
         this.ssn = ssn;
         this.phone = phone;
         this.address = address;
+        this.birthday = birthday;
     }
     AccountHolder(Scanner in) {
     	System.out.println("Enter your information to create an account");
@@ -23,6 +25,8 @@ public class AccountHolder {
         phone = in.nextLine();
         System.out.print("Address: ");
         address = in.nextLine();
+        System.out.print("Date of Birth: ");
+        birthday = in.nextLine();
     }
     
     void setName(String name) {
@@ -51,5 +55,12 @@ public class AccountHolder {
     }
     String getAddress() {
         return address;
+    }
+    
+    void setBirthday(String birthday) {
+    	this.birthday = birthday;
+    }
+    String getBirthday() {
+        return birthday;
     }
 }
