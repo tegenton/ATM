@@ -10,32 +10,8 @@ public class ATM {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ATM atm = new ATM(createAccount());
+        ATM atm = new ATM(new BankAccount(in));
         atm.menu();
-    }
-
-    public static BankAccount createAccount() {
-        String name; int ssn; String phone; String address;
-        System.out.println("Enter your information to create an account");
-        System.out.print("Name: ");
-        name = in.nextLine();
-        System.out.print("SSN: ");
-        ssn = in.nextInt();
-        in.nextLine();
-        System.out.print("Phone: ");
-        phone = in.nextLine();
-        System.out.print("Address: ");
-        address = in.nextLine();
-
-        AccountHolder user = new AccountHolder(name, ssn, phone, address);
-
-        System.out.print("Pin: ");
-        int pin = in.nextInt();
-        System.out.print("Account Number: ");
-        int accountNumber = in.nextInt();
-        in.nextLine();
-
-        return new BankAccount(user, pin, accountNumber);
     }
 
     private void menu(boolean secure) {
@@ -45,7 +21,7 @@ public class ATM {
     			System.out.println("Enter your account number");
     			accountNum = this.bankAccount.checkAccountNumber(in.nextInt());
     			in.nextLine();
-    			System.out.println( (accountNum) ? "" : "Incorrect, please try again");
+    			System.out.print( (accountNum) ? "" : "Incorrect, please try again\n");
     		}
     		
     		System.out.print("Enter your pin: ");
@@ -75,7 +51,7 @@ public class ATM {
         		this.bankAccount.withdraw(in.nextDouble());
         	}
         	catch (InvalidParameterException e) {
-        		System.out.println("You cannot withdraw more than your current balance");
+        		System.out.println(e.getMessage());
         	}
         	in.nextLine();
         	break;

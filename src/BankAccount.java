@@ -1,4 +1,5 @@
 import java.security.InvalidParameterException;
+import java.util.Scanner;
 
 public class BankAccount {
     private double balance = 0;
@@ -10,12 +11,22 @@ public class BankAccount {
         this.pin = pin;
         this.accountNumber = accountNumber;
     }
+    public BankAccount(Scanner in) {
+    	accountHolder = new AccountHolder(in);
+        System.out.print("Pin: ");
+        pin = in.nextInt();
+        System.out.print("Account Number: ");
+        accountNumber = in.nextInt();
+        in.nextLine();
+    }
     void deposit(double amount) {
         balance += amount;
     }
     void withdraw(double amount) {
-    	if (balance >= amount)
+    	if (balance >= amount && amount > 0)
     		balance -= amount;
+    	else if (0 > amount)
+    		throw new InvalidParameterException("Withdraw amount is less than 0");
     	else
     		throw new InvalidParameterException("Withdraw amount is greater than balance");
     }
@@ -34,4 +45,6 @@ public class BankAccount {
     boolean checkPIN(int test) {
         return pin == test;
     }
+    
+    
 }
