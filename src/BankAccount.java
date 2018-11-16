@@ -19,6 +19,14 @@ public class BankAccount {
         accountNumber = in.nextInt();
         in.nextLine();
     }
+    public BankAccount(Scanner in, AccountHolder accountHolder) {
+    	this.accountHolder = accountHolder;
+        System.out.print("Pin: ");
+        pin = in.nextInt();
+        System.out.print("Account Number: ");
+        accountNumber = in.nextInt();
+        in.nextLine();
+    }
     void deposit(double amount) {
         balance += amount;
     }
